@@ -51,16 +51,53 @@
         );
       }
 
+      function ChatMessages() {
+        const chatMessages = [{
+          message: 'hello chatbot',
+          sender: 'user',
+          id: 'id1'
+        }, {
+          message: 'Hello! How can I help you?',
+          sender: 'robot',
+          id: 'id2'
+        }, {
+          message: "What is today's date",
+          sender: 'user',
+          id: 'id3'
+        }, {
+          message: "Today is May 21",
+          sender: "robot" ,
+          id: 'id4'
+        }]; 
+
+        return (
+          <>
+            {chatMessages.map((chatMessage) => {
+              return (
+                <ChatMessage 
+                  message = {chatMessage.message}
+                  sender = {chatMessage.sender}
+                  key={chatMessage.id}
+                />
+              ); 
+          })} 
+        </>
+      );
+    }
+
       //replace variable to component to create app(best practice)
       function App() {
         return (
           <>
           {/*ChatInput()*/}
-          <ChatInput /> {/*this is component syntax, does the same as code above*/}
+          <ChatInput /> {/*this is component syntax, does the same as code above*/} 
+          <ChatMessages />
+          { /*
           <ChatMessage message="hello chatbot" sender="user"/>
           <ChatMessage message="Hello! How can I help you?" sender="robot"/>
-          <ChatMessage message="What is today's date" sender="user"/>
+          <ChatMessage message="What is today's date?" sender="user"/>
           <ChatMessage message="Today is May 21" sender="robot"/>
+          */}
         </>
         );
 
